@@ -21,6 +21,7 @@ use SleepingOwl\Admin\Navigation\Page;
 //
 // AdminSection::addMenuPage(\App\User::class)
 
+
 return [
     [
         'title' => 'Dashboard',
@@ -40,11 +41,24 @@ return [
         'icon'  => 'fa fa-sitemap',
          'model'    => \App\Page::class
     ],
-     [
-        'title' => 'Пользователи',
-        'icon'  => 'fa fa-users',
-         'model'    => \App\User::class
-    ],
+	[
+		'title' => 'Permissions',
+		'icon' => 'fa fa-group',
+		'priority' =>'10000',
+		'pages' => [
+			(new Page(\App\User::class))
+				->setIcon('fa fa-user')
+				->setPriority(0),
+			(new Page(\App\Role::class))
+				->setIcon('fa fa-group')
+				->setPriority(100)
+		]
+	],
+//     [
+//        'title' => 'Пользователи',
+//        'icon'  => 'fa fa-users',
+//         'model'    => \App\User::class
+//    ],
     //
     //        // or
     //

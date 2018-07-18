@@ -35,8 +35,12 @@ class User extends Authenticatable
 		return $this->belongsToMany(Role::class);
 	}
 
-	public function isAdmin()
+	public function isAdmin($role)
 	{
-		return  $this->roles()->get();
+		if (is_string($role)) {
+			return $this->roles->contains('name', $role);
+		}
+
+		return !! $role->intersect($this->roles)->count();
 	}
 }

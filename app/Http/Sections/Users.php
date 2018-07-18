@@ -36,12 +36,34 @@ class Users extends Section
      */
     protected $alias;
 
+	/**
+	 * Initialize class.
+	 */
+	public function initialize()
+	{
+		// Добавление пункта меню и счетчика кол-ва записей в разделе
+		$this->addToNavigation($priority = 500, 'gjkji');
+
+		$this->creating(function($config, \Illuminate\Database\Eloquent\Model $model) {
+
+		});
+	}
+
+
+
+	/**
+	 * @return string
+	 */
+	public function getIcon()
+	{
+		return 'fa fa-group';
+	}
+
     /**
      * @return DisplayInterface
      */
     public function onDisplay()
     {
-
 	    return AdminDisplay::table()
 		    ->with('roles')
 		    ->setHtmlAttribute('class', 'table-primary')

@@ -1,11 +1,17 @@
 <?php
 
 namespace App\Providers;
+use SleepingOwl\Admin\Model\ModelConfiguration;
 
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
 
+
 class AdminSectionsServiceProvider extends ServiceProvider
 {
+	/**
+	 * Register widgets.
+	 * @var array
+	 */
      protected $widgets = [
         \App\Admin\Widgets\AdminMenu::class,
     ];
@@ -18,6 +24,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
     protected $sections = [
         \App\User::class => 'App\Http\Sections\Users',
         \App\Page::class => 'App\Http\Sections\Pages',
+	    \App\Role::class => 'App\Http\Sections\Roles',
     ];
 
 	/**
@@ -36,6 +43,8 @@ class AdminSectionsServiceProvider extends ServiceProvider
 
 	    $this->loadViewsFrom( base_path( "/resources//views/admin" ), 'admin' );
 
+
         parent::boot($admin);
+
     }
 }

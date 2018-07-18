@@ -3,9 +3,10 @@
 namespace App\Policies;
 
 use App\User;
+
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class UsersSectionModelPolicy
 {
 
 	use HandlesAuthorization;
@@ -16,7 +17,18 @@ class UserPolicy
 	 *
 	 * @return bool
 	 */
-	public function before(User $user, $ability, User $item)
+	public function before(User $user)
+	{
+
+	}
+
+	/**
+	 * @param User $user
+	 * @param User $item
+	 *
+	 * @return bool
+	 */
+	public function display(User $user)
 	{
 		return true;
 	}
@@ -27,7 +39,7 @@ class UserPolicy
 	 *
 	 * @return bool
 	 */
-	public function display(User $user, User $item)
+	public function create(User $user)
 	{
 		return true;
 	}
@@ -38,9 +50,9 @@ class UserPolicy
 	 *
 	 * @return bool
 	 */
-	public function create(User $user, User $item)
+	public function edit(User $user)
 	{
-		return true;
+		return false;
 	}
 
 	/**
@@ -49,9 +61,9 @@ class UserPolicy
 	 *
 	 * @return bool
 	 */
-	public function edit(User $user, User $item)
+	public function delete(User $user)
 	{
-		return true;
+		return false;
 	}
 
 	/**
@@ -60,19 +72,8 @@ class UserPolicy
 	 *
 	 * @return bool
 	 */
-	public function delete(User $user, User $item)
+	public function restore(User $user)
 	{
-		return true;
-	}
-
-	/**
-	 * @param User $user
-	 * @param User $item
-	 *
-	 * @return bool
-	 */
-	public function restore(User $user, User $item)
-	{
-		return true;
+		return false;
 	}
 }

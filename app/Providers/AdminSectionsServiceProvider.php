@@ -8,6 +8,7 @@ use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
 
 class AdminSectionsServiceProvider extends ServiceProvider
 {
+
 	/**
 	 * Register widgets.
 	 * @var array
@@ -45,6 +46,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
 
 
         parent::boot($admin);
+	    $this->registerPolicies();
 
     }
 }

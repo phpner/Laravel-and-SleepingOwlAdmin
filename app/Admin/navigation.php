@@ -42,7 +42,7 @@ return [
          'model'    => \App\Page::class
     ],
 	[
-		'title' => 'Permissions',
+		'title' => 'Права доступа',
 		'icon' => 'fa fa-group',
 		'priority' =>'10000',
 		'pages' => [

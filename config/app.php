@@ -151,11 +151,11 @@ return [
          * Package Service Providers...
          */
         SleepingOwl\Admin\Providers\SleepingOwlServiceProvider::class,
+	    App\Providers\AdminSectionsServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-	    App\Providers\AdminSectionsServiceProvider::class,
 	    App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
